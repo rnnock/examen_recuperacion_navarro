@@ -1,7 +1,7 @@
+import 'package:examen_recuperacion_navarro/providers/providers.dart';
 import 'package:examen_recuperacion_navarro/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'preferences/preferences.dart';
 
 //Hacemos el main async para ejecutar nuestras preferencias y así
@@ -18,9 +18,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (BuildContext context) {},
-        ),
+        ChangeNotifierProvider(create: (_) => CorredorListProvider()),
       ],
       child: MyApp(),
     ),
@@ -33,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Productes App',
-      initialRoute: 'home',
+      initialRoute: 'login',
       routes: {
         'login': (_) => LoginScreen(),
         'home': (_) => HomeScreen(),
